@@ -1,0 +1,925 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FlexServerSDK</name>
+    </assembly>
+    <members>
+        <member name="T:FlexServerSDK.Authentication.BaseCyberSourceGateKeeperCredentials">
+            <summary>
+            Provides shared authentication functionality between CGK and Flex API credentials.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Authentication.BaseCyberSourceGateKeeperCredentials.Environment">
+            <summary>
+            Gets the environment against which the credentials are to be used.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Authentication.BaseCyberSourceGateKeeperCredentials.Mid">
+            <summary>
+            Gets the CyberSource merchant ID.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Authentication.BaseCyberSourceGateKeeperCredentials.KeyId">
+            <summary>
+            Gets the ID of the authentication key.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.BaseCyberSourceGateKeeperCredentials.SetEnvironment(FlexServerSDK.Authentication.Environment)">
+            <summary>
+            Sets the environment against which the credentials are to be used.
+            </summary>
+            <param name="environment">The environment</param>
+            <returns>this instance to facilitate fluent API usage</returns>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.BaseCyberSourceGateKeeperCredentials.SetEnvironment(System.String)">
+            <summary>
+            Sets the environment against which the credentials are to be used.
+            </summary>
+            <param name="environment">The environment</param>
+            <returns>this instance to facilitate fluent API usage</returns>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.BaseCyberSourceGateKeeperCredentials.SetMid(System.String)">
+            <summary>
+            Sets the CyberSource merchant ID.
+            </summary>
+            <param name="mid">The merchant ID</param>
+            <returns>this instance to facilitate fluent API usage</returns>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.BaseCyberSourceGateKeeperCredentials.SetKeyId(System.String)">
+            <summary>
+            Sets the ID of the authentication key.
+            </summary>
+            <param name="keyId">The key ID</param>
+            <returns>this instance to facilitate fluent API usage</returns>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.BaseCyberSourceGateKeeperCredentials.SetSharedSecret(System.Security.SecureString)">
+            <summary>
+            Sets the sensitive authentication shared secret.
+            </summary>
+            <param name="sharedSecret">The shared secret</param>
+            <returns>this instance to facilitate fluent API usage</returns>
+            <remarks>The shared secret is stored as a SecureString and its decrypted value securely overwritten 
+            after use to help protect against its exposure through heap inspection. Similar care should be taken 
+            by the merchant to protect sensitive Flex authentication credentials.</remarks>
+        </member>
+        <member name="T:FlexServerSDK.Authentication.CyberSourceFlexCredentials">
+            <summary>
+            Authentication credentials for CyberSource Flex API.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.CyberSourceFlexCredentials.#ctor">
+            <summary>
+            Default constructor. Use it when you want to call setters individually. 
+            Note that you can use fluent API in such case.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.CyberSourceFlexCredentials.#ctor(FlexServerSDK.Authentication.Environment,System.String,System.String,System.Security.SecureString)">
+            <summary>
+            Constructor that can be used to supply all authentication information in one call. 
+            Successfully invoked constructor produces an object that is ready for use with <see cref="T:FlexServerSDK.IFlexService"/>.
+            </summary>
+            <param name="environment">The environment against which the credentials are to be used</param>
+            <param name="mid">The CyberSource merchant ID</param>
+            <param name="keyId">The ID of the authentication key</param>
+            <param name="sharedSecret">The sensitive authentication shared secret</param>
+        </member>
+        <member name="T:FlexServerSDK.Authentication.CyberSourceGateKeeperCredentials">
+            <summary>
+            Authentication credentials for CyberSource Gate Keeper.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.CyberSourceGateKeeperCredentials.#ctor">
+            <summary>
+            Default constructor. Use it when you want to call setters individually. 
+            Note that you can use fluent API in such case.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.CyberSourceGateKeeperCredentials.#ctor(FlexServerSDK.Authentication.Environment,System.String,System.String,System.Security.SecureString)">
+            <summary>
+            Constructor that can be used to supply all authentication information in one call. 
+            Successfully invoked constructor produces an object that is ready for use with <see cref="T:FlexServerSDK.IFlexService"/>.
+            </summary>
+            <param name="environment">The environment against which the credentials are to be used</param>
+            <param name="mid">The CyberSource merchant ID</param>
+            <param name="keyId">The ID of the authentication key</param>
+            <param name="sharedSecret">The sensitive authentication shared secret</param>
+        </member>
+        <member name="T:FlexServerSDK.Authentication.Environment">
+            <summary>
+            The available Flex API environments against which the SDK may be used.
+            </summary>
+        </member>
+        <member name="F:FlexServerSDK.Authentication.Environment.TEST">
+            <summary>
+            Denotes merchant facing test environment. Test environment is called "sandbox" 
+            for Visa Developer Platform and "CAS" for CyberSource Developer Platform.
+            </summary>
+        </member>
+        <member name="F:FlexServerSDK.Authentication.Environment.LIVE">
+            <summary>
+            Denotes production environment.
+            </summary>
+        </member>
+        <member name="T:FlexServerSDK.Authentication.IFlexCredentials">
+            <summary>
+            Interface for authentication credentials.
+            </summary>
+        </member>
+        <member name="T:FlexServerSDK.Authentication.VisaDeveloperCenterCredentials">
+            <summary>
+            Authentication credentials for Visa Developer Platform.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Authentication.VisaDeveloperCenterCredentials.Environment">
+            <summary>
+            Gets the environment against which the credentials are to be used.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Authentication.VisaDeveloperCenterCredentials.ApiKey">
+            <summary>
+            Gets the API key used for authentication.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.VisaDeveloperCenterCredentials.#ctor">
+            <summary>
+            Default constructor. Use it when you want to call setters individually. 
+            Note that you can use fluent API in such case.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.VisaDeveloperCenterCredentials.#ctor(FlexServerSDK.Authentication.Environment,System.String,System.Security.SecureString)">
+            <summary>
+            Constructor that can be used to supply all authentication information in one call. 
+            Successfully invoked constructor produces an object that is ready for use with <see cref="T:FlexServerSDK.IFlexService"/>.
+            </summary>
+            <param name="environment">The environment against which the credentials are to be used</param>
+            <param name="apiKey">The authentication key</param>
+            <param name="sharedSecret">The sensitive authentication shared secret</param>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.VisaDeveloperCenterCredentials.SetEnvironment(FlexServerSDK.Authentication.Environment)">
+            <summary>
+            Sets the environment against which the credentials are to be used.
+            </summary>
+            <param name="environment">The environment</param>
+            <returns>this instance to facilitate fluent API usage</returns>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.VisaDeveloperCenterCredentials.SetEnvironment(System.String)">
+            <summary>
+            Sets the environment against which the credentials are to be used.
+            </summary>
+            <param name="environment">The environment</param>
+            <returns>this instance to facilitate fluent API usage</returns>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.VisaDeveloperCenterCredentials.SetApiKey(System.String)">
+            <summary>
+            Sets the API key used for authentication.
+            </summary>
+            <param name="apiKey">The API key</param>
+            <returns></returns>
+        </member>
+        <member name="M:FlexServerSDK.Authentication.VisaDeveloperCenterCredentials.SetSharedSecret(System.Security.SecureString)">
+            <summary>
+            Sets the sensitive authentication shared secret.
+            </summary>
+            <param name="sharedSecret"></param>
+            <returns>this instance to facilitate fluent API usage</returns>
+            <remarks>The shared secret is stored as a SecureString and its decrypted value securely overwritten 
+            after use to help protect against its exposure through heap inspection. Similar care should be taken 
+            by the merchant to protect sensitive Flex authentication credentials.</remarks>
+        </member>
+        <member name="T:FlexServerSDK.Exception.FlexApiClientException">
+            <summary>
+            The exception that is thrown when an error is returned by Flex API due to a client error e.g. an invalid request.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Exception.FlexApiClientException.#ctor(System.Int32,FlexServerSDK.Model.FlexErrorResponse,System.String)">
+            <summary>
+            Constructs a new instance of the exception with the specified error response.
+            </summary>
+            <param name="status">The HTTP status code</param>
+            <param name="flexErrorResponse">The error response returned by Flex API</param>
+            <param name="vcCorrelationId">The "v-c-correlation-id" returned by Flex API</param>
+        </member>
+        <member name="T:FlexServerSDK.Exception.FlexApiException">
+            <summary>
+            Exception that is thrown when an error is returned by Flex API.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Exception.FlexApiException.Status">
+            <summary>
+            Gets the HTTP status code.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Exception.FlexApiException.FlexErrorResponse">
+            <summary>
+            The error response returned by Flex API.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Exception.FlexApiException.VcCorrelationId">
+            <summary>
+            The "v-c-correlation-id" returned by Flex API.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Exception.FlexApiException.#ctor(System.Int32,FlexServerSDK.Model.FlexErrorResponse,System.String)">
+            <summary>
+            Constructs a new instance of the exception with the specified error response.
+            </summary>
+            <param name="status">The HTTP status code</param>
+            <param name="flexErrorResponse">The error response returned by Flex API</param>
+            <param name="vcCorrelationId">The "v-c-correlation-id" returned by Flex API</param>
+        </member>
+        <member name="T:FlexServerSDK.Exception.FlexApiServerException">
+            <summary>
+            The exception that is thrown when an error is returned by Flex API due to a server error.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Exception.FlexApiServerException.#ctor(System.Int32,FlexServerSDK.Model.FlexErrorResponse,System.String)">
+            <summary>
+            Constructs a new instance of the exception with the specified error response.
+            </summary>
+            <param name="status">The HTTP status code</param>
+            <param name="flexErrorResponse">The error response returned by Flex API</param>
+            <param name="vcCorrelationId">The "v-c-correlation-id" returned by Flex API</param>
+        </member>
+        <member name="T:FlexServerSDK.Exception.FlexEncodingException">
+            <summary>
+            Exception that is thrown when there is an error encoding or decoding data.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Exception.FlexEncodingException.#ctor(System.String)">
+            <summary>
+            Constructs a new instance of the exception with a specified error message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception</param>
+        </member>
+        <member name="M:FlexServerSDK.Exception.FlexEncodingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructs a new instance of the exception with a specified error message 
+            and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception</param>
+            <param name="inner">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="T:FlexServerSDK.Exception.FlexException">
+            <summary>
+            Base class for all Flex Server SDK exceptions.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Exception.FlexException.#ctor(System.String)">
+            <summary>
+            Constructs a new instance of the exception with a specified error message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception</param>
+        </member>
+        <member name="M:FlexServerSDK.Exception.FlexException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructs a new instance of the exception with a specified error message 
+            and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception</param>
+            <param name="inner">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="T:FlexServerSDK.Exception.FlexSDKInternalException">
+            <summary>
+            Exception that is thrown when there is an error performing an internal SDK function.
+            </summary>
+        </member>
+        <member name="T:FlexServerSDK.Exception.FlexSecurityException">
+            <summary>
+            Exception that is thrown when a security violation is detected e.g. an invalid "Digest" header 
+            returned by Flex API indicating that the response was tampered with.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Exception.FlexSecurityException.#ctor(System.String)">
+            <summary>
+            Constructs a new instance of the exception with a specified error message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception</param>
+        </member>
+        <member name="M:FlexServerSDK.Exception.FlexSecurityException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructs a new instance of the exception with a specified error message 
+            and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception</param>
+            <param name="inner">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="T:FlexServerSDK.FlexServiceFactory">
+            <summary>
+            Provides methods for the construction of a IFlexService instance.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.FlexServiceFactory.Create(FlexServerSDK.Authentication.IFlexCredentials)">
+            <summary>
+            Constructs a IFlexService instance using the specified authentication credentials and default configuration.
+            </summary>
+            <param name="credentials">The authentication credentials</param>
+            <returns>A IFlexService instance</returns>
+        </member>
+        <member name="M:FlexServerSDK.FlexServiceFactory.Create(FlexServerSDK.Authentication.IFlexCredentials,FlexServerSDK.FlexServiceConfiguration)">
+            <summary>
+            Constructs a IFlexService instance using the specified authentication credentials and configuration.
+            </summary>
+            <param name="credentials">The authentication credentials</param>
+            <param name="configuration">The SDK configuration</param>
+            <returns>A IFlexService instance</returns>
+        </member>
+        <member name="T:FlexServerSDK.FlexServiceConfiguration">
+            <summary>
+            Represents the SDK settings.
+            </summary>
+        </member>
+        <member name="F:FlexServerSDK.FlexServiceConfiguration.DEFAULT">
+            <summary>
+            Default configuration
+            </summary>
+        </member>
+        <member name="F:FlexServerSDK.FlexServiceConfiguration.DEBUG">
+            <summary>
+            Default configuration with debug logging enabled
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.FlexServiceConfiguration.RequestTimeout">
+            <summary>
+            Gets or set the number of milliseconds after which the Flex API HTTP request will time out.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.FlexServiceConfiguration.Proxy">
+            <summary>
+            Gets or sets the proxy to use to connect to Flex API.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.FlexServiceConfiguration.EnableDebugLogging">
+            <summary>
+            Gets or sets whether debug logging is enabled.
+            </summary>
+        </member>
+        <member name="T:FlexServerSDK.FlexServiceConfigurationBuilder">
+            <summary>
+            Helper class for building a FlexServiceConfiguration instance.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.FlexServiceConfigurationBuilder.SetRequestTimeout(System.Int32)">
+            <summary>
+            Sets the request timeout.
+            </summary>
+            <param name="requestTimeout">the request timeout</param>
+            <returns>this instance</returns>
+            <remarks>The default value is 10,000 milliseconds (10 seconds).</remarks>
+        </member>
+        <member name="M:FlexServerSDK.FlexServiceConfigurationBuilder.SetProxy(System.Net.IWebProxy)">
+            <summary>
+            Sets the request proxy.
+            </summary>
+            <param name="proxy">The proxy</param>
+            <returns>this instance</returns>
+            <remarks>By default there is no proxy used.</remarks>
+        </member>
+        <member name="M:FlexServerSDK.FlexServiceConfigurationBuilder.SetDebugLoggingEnabled(System.Boolean)">
+            <summary>
+            Sets whether debug logging is enabled.
+            </summary>
+            <param name="enableDebugLogging">whether debug logging is enabled</param>
+            <returns>this instance</returns>
+            <remarks>The default value is: false</remarks>
+        </member>
+        <member name="M:FlexServerSDK.FlexServiceConfigurationBuilder.Build">
+            <summary>
+            Constructs a FlexServiceConfiguration instance with the current settings.
+            </summary>
+            <returns>A FlexServiceConfiguration instance</returns>
+        </member>
+        <member name="T:FlexServerSDK.IFlexService">
+            <summary>
+            This service exposes the Flex Server SDK functions.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.IFlexService.CreateKey">
+            <summary>
+            Generates a Flex API limited time use public RSA key. The encryption type defaults to <see cref="F:FlexServerSDK.Model.EncryptionType.RsaOaep256" />.
+            </summary>
+            <returns>The Flex API public RSA key</returns>
+        </member>
+        <member name="M:FlexServerSDK.IFlexService.CreateKey(FlexServerSDK.Model.KeysRequestParameters)">
+            <summary>
+            Generates a Flex API limited time use public RSA key with the supplied parameters.
+            </summary>
+            <param name="keyRequestParameters">The parameters with which the key is to be generated</param>
+            <returns>The Flex API public RSA key</returns>
+        </member>
+        <member name="M:FlexServerSDK.IFlexService.CreateKey(FlexServerSDK.Model.EncryptionType)">
+            <summary>
+            Generates a Flex API limited time use public RSA key with the supplied encryption type.
+            </summary>
+            <param name="encryptionType">The encryption type to be used with the key</param>
+            <returns>The Flex API public RSA key</returns>
+        </member>
+        <member name="M:FlexServerSDK.IFlexService.CreateKey(FlexServerSDK.Model.EncryptionType,System.String)">
+            <summary>
+            Generates a Flex API limited time use public RSA key with the supplied encryption type for use with Flex Microform.
+            </summary>
+            <param name="encryptionType">The encryption type to be used with the key</param>
+            <param name="targetOrigin">The origin of the website in which Flex Microform will be embedded e.g. "https://www.cybersource.com/"</param>
+            <returns>The Flex API public RSA key</returns>
+        </member>
+        <member name="M:FlexServerSDK.IFlexService.DecodePublicKey(FlexServerSDK.Model.FlexPublicKey)">
+            <summary>
+            Extracts the standard parameters for the RSA algorithm from a Flex API public RSA key.
+            </summary>
+            <param name="flexKey">The Flex API public RSA key</param>
+            <returns>The standard parameters for the System.Security.Cryptography.RSA algorithm</returns>
+        </member>
+        <member name="M:FlexServerSDK.IFlexService.Verify(System.String,System.String)">
+            <summary>
+            Verifies that the signature returned in the Flex token response is valid.
+            </summary>
+            <param name="flexKey">The serialized Flex API public RSA key</param>
+            <param name="token">The serialized Flex API token response</param>
+            <returns>Whether the signaure is valid</returns>
+        </member>
+        <member name="M:FlexServerSDK.IFlexService.Verify(FlexServerSDK.Model.FlexPublicKey,System.String)">
+            <summary>
+            Verifies that the signature returned in the Flex token response is valid.
+            </summary>
+            <param name="flexKey">The Flex API public RSA key</param>
+            <param name="token">The Flex API token response</param>
+            <returns>Whether the signaure is valid</returns>
+        </member>
+        <member name="M:FlexServerSDK.IFlexService.Verify(FlexServerSDK.Model.FlexPublicKey,FlexServerSDK.Model.FlexToken)">
+            <summary>
+            Verifies that the signature returned in the Flex token response is valid.
+            </summary>
+            <param name="flexKey">The Flex API public RSA key</param>
+            <param name="token">The Flex API token response</param>
+            <returns>Whether the signaure is valid</returns>
+        </member>
+        <member name="M:FlexServerSDK.IFlexService.Verify(FlexServerSDK.Model.FlexPublicKey,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Verifies that the signature returned in the Flex token response is valid.
+            </summary>
+            <param name="flexKey">The Flex API public RSA key</param>
+            <param name="postParameters">Map containing the signed Flex API token response fields and signature</param>
+            <seealso cref="T:FlexServerSDK.Model.FlexToken" />
+            <returns>Whether the signaure is valid</returns>
+        </member>
+        <member name="T:FlexServerSDK.Internal.HttpHandlerProxy">
+            <summary>
+            To enable TLS 1.2 the ServicePointManager.SecurityProtocol property must be set: 
+            <code>ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;</code>
+            
+            However, this setting cannot be applied to individual requests but rather is set for the current AppDomain. In order to avoid conflicts 
+            this property is set within Httphandler which is run in a separate AppDomain. 
+            
+            The use of MarshallableCompletionSource is required due to it not being possible to make cross-domain calls for methods with a 
+            non-serializable return type such as Task. See the following for details: 
+            <see href="https://social.msdn.microsoft.com/Forums/vstudio/en-US/28277f25-5f5d-4b7c-bf1f-402937fc9f31/tasks-across-appdomain"/>
+            </summary>
+        </member>
+        <member name="T:FlexServerSDK.Model.DerPublicKey">
+            <summary>
+            Represents the public RSA key in DER format.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.DerPublicKey.format">
+            <summary>
+            Gets and sets the public key format.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.DerPublicKey.algorithm">
+            <summary>
+            Gets and sets the algorithm with which the key is used.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.DerPublicKey.publicKey">
+            <summary>
+            Gets and sets the encoded key specification.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.DerPublicKey.#ctor">
+            <summary>
+            Default constructor. Use if you wish to set properties individually.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.DerPublicKey.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructs a DerPublicKey instance with the supplied format, algorithm and encoded key.
+            </summary>
+            <param name="format">The format</param>
+            <param name="algorithm">The algorithm</param>
+            <param name="publicKey">The encoded key</param>
+        </member>
+        <member name="T:FlexServerSDK.Model.EncryptionType">
+            <summary>
+            The supported encryption methods which may be used with a Flex API public key.
+            </summary>
+        </member>
+        <member name="F:FlexServerSDK.Model.EncryptionType.None">
+            <summary>
+            No encryption
+            </summary>
+            <remarks>
+            An RSA public key will still be generated to allow for signature verification.</remarks>
+        </member>
+        <member name="F:FlexServerSDK.Model.EncryptionType.RsaOaep">
+            <summary>
+            RSA with OAEP padding
+            </summary>
+        </member>
+        <member name="F:FlexServerSDK.Model.EncryptionType.RsaOaep256">
+            <summary>
+            RSA with OAEP padding with SHA-256 hash function
+            </summary>
+            <remarks>This encryption type is not supported by older versions of Safari.</remarks>
+        </member>
+        <member name="T:FlexServerSDK.Model.ErrorLinks">
+            <summary>
+            Represents the links which may be returned as part of the Flex API error response.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.ErrorLinks.self">
+            <summary>
+            Get and set link to retrieve details of the returned error
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.ErrorLinks.documentation">
+            <summary>
+            Get and set link(s) to documentation for the returned error
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.ErrorLinks.next">
+            <summary>
+            Get and set additional link(s)
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.ErrorLinks.#ctor">
+            <summary>
+            Constructs an ErrorLinks instance with no links.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.ErrorLinks.AddDocumentationLinks(System.Collections.Generic.IList{FlexServerSDK.Model.Link})">
+            <summary>
+            Add documentation link(s).
+            </summary>
+            <param name="links">The link(s)</param>
+        </member>
+        <member name="M:FlexServerSDK.Model.ErrorLinks.AddNextLinks(System.Collections.Generic.IList{FlexServerSDK.Model.Link})">
+            <summary>
+            Add additional link(s).
+            </summary>
+            <param name="links">The link(s)</param>
+        </member>
+        <member name="T:FlexServerSDK.Model.FlexErrorResponse">
+            <summary>
+            Represents the error response returned by Flex API.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexErrorResponse.responseStatus">
+            <summary>
+            Gets and sets the details of the error response.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexErrorResponse._links">
+            <summary>
+            Gets and sets link(s) related to the error.
+            </summary>
+        </member>
+        <member name="T:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus">
+            <summary>
+            Represents the details of the error response.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.status">
+            <summary>
+            Gets or sets the HTTP status code.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.reason">
+            <summary>
+            Gets or sets the reason for the error.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.message">
+            <summary>
+            Gets or sets the descriptive error message.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.correlationId">
+            <summary>
+            Gets or sets the unique correlation ID.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.details">
+            <summary>
+            Gets or sets the list of error details.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus._embedded">
+            <summary>
+            Gets or sets the embedded object(s).
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.#ctor">
+            <summary>
+            Default constructor. Use if you wish to set properties individually.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.#ctor(System.Int32)">
+            <summary>
+            Constructs an ErrorResponseStatus with the specified HTTP status.
+            </summary>
+            <param name="status"></param>
+        </member>
+        <member name="M:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.AddDetail(FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.Detail)">
+            <summary>
+            Add an individual detail to the details list.
+            </summary>
+            <param name="detail">The detail</param>
+        </member>
+        <member name="T:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.Detail">
+            <summary>
+            Represents details of an error.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.Detail.location">
+            <summary>
+            Gets or sets the name of the invalid field or setting or if the request cannot be parsed, 
+            the offset within the request body at which the error was encountered.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.Detail.message">
+            <summary>
+            Gets or sets the description of the error.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.Detail.#ctor">
+            <summary>
+            Default constructor. Use if you wish to set properties individually.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.FlexErrorResponse.ErrorResponseStatus.Detail.#ctor(System.String,System.String)">
+            <summary>
+            Constructs a Detail instance with the specified location and message.
+            </summary>
+            <param name="location">The location</param>
+            <param name="message">The message</param>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexPublicKey.keyId">
+            <summary>
+            Gets or sets the unique ID of the key.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexPublicKey.der">
+            <summary>
+            Gets or sets the DER representation of the key.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexPublicKey.jwk">
+            <summary>
+            Gets or sets the JSON Web Key representation of the key for use with the Web Crypto API.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.FlexPublicKey.#ctor">
+            <summary>
+            Default constructor. Use if you wish to set properties individually.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.FlexPublicKey.#ctor(System.String,FlexServerSDK.Model.DerPublicKey,FlexServerSDK.Model.JsonWebKey)">
+            <summary>
+            Constructs a FlexPublicKey instance with the specified ID, DER representation and JWK representation.
+            </summary>
+            <param name="keyId">The ID</param>
+            <param name="der">The DER representation</param>
+            <param name="jwk">The JWK representation</param>
+        </member>
+        <member name="T:FlexServerSDK.Model.FlexToken">
+            <summary>
+            Represents the Flex API token response.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexToken.keyId">
+            <summary>
+            Gets or sets the ID of the key associated with the token.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexToken.token">
+            <summary>
+            Gets or sets the generated token. The token replaces card data and is used as the Subscription ID in the CyberSource Simple Order API or SCMP API.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexToken.maskedPan">
+            <summary>
+            Gets or sets the masked card number.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexToken.cardType">
+            <summary>
+            Gets or sets the card type.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexToken.timestamp">
+            <summary>
+            Gets or sets the UTC date and time in milliseconds at which the signature was generated.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexToken.discoverableServices">
+            <summary>
+            Gets or sets the list of follow-on services with which the token may be used.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexToken.signedFields">
+            <summary>
+            Gets or sets which fields from the response make up the data that is used when verifying the response signature.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexToken.signature">
+            <summary>
+            Gets or sets the Flex-generated digital signature. To ensure the values have not been tampered with while passing through the client, verify the signature server-side using the associated Flex API public key.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.FlexToken._embedded">
+            <summary>
+            Gets or sets the embedded object(s).
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.FlexToken.#ctor">
+            <summary>
+            Constructs a FlexToken instance.
+            </summary>
+        </member>
+        <member name="T:FlexServerSDK.Model.JsonWebKey">
+            <summary>
+            Represents a JSON Web Key for use with the Web Crypto API.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.JsonWebKey.kty">
+            <summary>
+            Gets or sets the key type.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.JsonWebKey.use">
+            <summary>
+            Gets or sets the key use.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.JsonWebKey.kid">
+            <summary>
+            Gets or sets the key ID.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.JsonWebKey.n">
+            <summary>
+            Gets or sets the modulus.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.JsonWebKey.e">
+            <summary>
+            Gets or sets the exponent.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.JsonWebKey.#ctor">
+            <summary>
+            Default constructor. Use if you wish to set properties individually.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.JsonWebKey.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructs a JsonWebKey instance with the specified key type, key use, key ID, modulus and exponent.
+            </summary>
+            <param name="keyType">The key type</param>
+            <param name="keyUse">The key use</param>
+            <param name="keyId">The key ID</param>
+            <param name="modulus">The modulus</param>
+            <param name="exponent">The exponent</param>
+        </member>
+        <member name="T:FlexServerSDK.Model.KeyRequestSettings">
+            <summary>
+            Represents additional settings which may be specified in a Flex API public key request.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.KeyRequestSettings.unmaskedLeft">
+            <summary>
+            Gets or sets the number of unmasked digits to be shown at the beginning of the card number (BIN). 
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.KeyRequestSettings.unmaskedRight">
+            <summary>
+            Gets or sets the number of unmasked digits to be shown at the end of the card number. 
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.KeyRequestSettings.enableBillingAddress">
+            <summary>
+            Gets or sets whether to supply billing details when generating the token.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.KeyRequestSettings.currency">
+            <summary>
+            Gets or sets the currency to be used with the token.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.KeyRequestSettings.enableAutoAuth">
+            <summary>
+            Gets or sets whether to perform an automatic pre-authorisation before generating the token.
+            </summary>
+        </member>
+        <member name="T:FlexServerSDK.Model.KeysRequestParameters">
+            <summary>
+            Represents the Flex API public key request.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.KeysRequestParameters.encryptionType">
+            <summary>
+            Gets or sets the encryption type to be used with the key.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.KeysRequestParameters.targetOrigin">
+            <summary>
+            Gets or sets the target origin. 
+            </summary>
+            <remarks>This parameter is required if the key is to be used with Flex Microform and must be 
+            set to the website in which Flex Microform will be embedded.</remarks>
+        </member>
+        <member name="P:FlexServerSDK.Model.KeysRequestParameters.settings">
+            <summary>
+            Gets or sets additional Flex API public key settings.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.KeysRequestParameters.#ctor">
+            <summary>
+            Constructs a KeysRequestParameters with an encryption type of <see cref="F:FlexServerSDK.Model.EncryptionType.RsaOaep256" />.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.KeysRequestParameters.#ctor(FlexServerSDK.Model.EncryptionType)">
+            <summary>
+            Constructs a KeysRequestParameters with the specified encryption type.
+            </summary>
+            <param name="encryptionType">The encryption type</param>
+        </member>
+        <member name="M:FlexServerSDK.Model.KeysRequestParameters.#ctor(FlexServerSDK.Model.EncryptionType,System.String)">
+            <summary>
+            Constructs a KeysRequestParameters with the specified encryption type and target origin.
+            </summary>
+            <param name="encryptionType">The encryption type</param>
+            <param name="targetOrigin">The target origin</param>
+        </member>
+        <member name="M:FlexServerSDK.Model.KeysRequestParameters.#ctor(FlexServerSDK.Model.EncryptionType,FlexServerSDK.Model.KeyRequestSettings)">
+            <summary>
+            Constructs a KeysRequestParameters with the specified encryption type and additional settings.
+            </summary>
+            <param name="encryptionType">The encryption type</param>
+            <param name="settings">The additional settings</param>
+        </member>
+        <member name="M:FlexServerSDK.Model.KeysRequestParameters.#ctor(FlexServerSDK.Model.EncryptionType,System.String,FlexServerSDK.Model.KeyRequestSettings)">
+            <summary>
+            Constructs a KeysRequestParameters with the specified encryption type, target origin and additional settings.
+            </summary>
+            <param name="encryptionType">The encryption type</param>
+            <param name="targetOrigin">The target origin</param>
+            <param name="settings">The additional settings</param>
+        </member>
+        <member name="T:FlexServerSDK.Model.Link">
+            <summary>
+            Represents a link to a HTTP resource.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.Link.href">
+            <summary>
+            The URL of the resource.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.Link.title">
+            <summary>
+             The title of the resource.
+            </summary>
+        </member>
+        <member name="P:FlexServerSDK.Model.Link.method">
+            <summary>
+            The HTTP method with which to request the resource.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.Link.#ctor">
+            <summary>
+            Default constructor. Use if you wish to set properties individually.
+            </summary>
+        </member>
+        <member name="M:FlexServerSDK.Model.Link.#ctor(System.String)">
+            <summary>
+            Constructs a Link instance with the provided URL and a method of "GET".
+            </summary>
+            <param name="href">The URL</param>
+        </member>
+        <member name="M:FlexServerSDK.Model.Link.#ctor(System.String,System.String)">
+            <summary>
+            Constructs a Link instance with the provided URL and method.
+            </summary>
+            <param name="href">The URL</param>
+            <param name="method">The HTTP method</param>
+        </member>
+        <member name="M:FlexServerSDK.Model.Link.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructs a Link instance with the provided URL, method and title.
+            </summary>
+            <param name="href">The URL</param>
+            <param name="method">The HTTP method</param>
+            <param name="title">The title</param>
+        </member>
+    </members>
+</doc>
