@@ -216,7 +216,8 @@ namespace Cybersource_rest_samples_dotnet
              */
 
             // 1. Find the Api Families (Folders inside the main 'Samples' Folder)
-            const string pathOfSamplesFolder = @"C:\CYBS\CybsPayments\src\Samples";
+            //const string pathOfSamplesFolder = @"C:\CYBS\CybsPayments\src\Samples";
+            const string pathOfSamplesFolder = "..\\..\\Samples";
             var dirList = Directory.GetDirectories(pathOfSamplesFolder, "*");
             var apiFamilies = new List<string>();
 
@@ -282,7 +283,8 @@ namespace Cybersource_rest_samples_dotnet
 
         private static void InitializeSampleClassesPathList()
         {
-            const string pathOfSamplesFolder = @"C:\CYBS\CybsPayments\src\Samples";
+            //const string pathOfSamplesFolder = @"C:\CYBS\CybsPayments\src\Samples";
+            const string pathOfSamplesFolder = "..\\..\\Samples";
             const string projectNamespace = "Cybersource_rest_samples_dotnet";
 
             // dirList has got all the folders and sub-folders for the Samples Folder Path
