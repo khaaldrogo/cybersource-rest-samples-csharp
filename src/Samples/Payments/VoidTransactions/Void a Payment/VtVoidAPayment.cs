@@ -34,8 +34,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.VoidTransactions.Void
             var v2paymentsOrderInformationBillToObj = new V2paymentsOrderInformationBillTo();
 
             v2paymentsOrderInformationBillToObj.Country = "US";
-            v2paymentsOrderInformationBillToObj.FirstName = "RTS";
-            v2paymentsOrderInformationBillToObj.LastName = "VDP";
+            v2paymentsOrderInformationBillToObj.FirstName = "John";
+            v2paymentsOrderInformationBillToObj.LastName = "Deo";
             v2paymentsOrderInformationBillToObj.Address1 = "901 Metro Center Blvd";
             v2paymentsOrderInformationBillToObj.PostalCode = "40500";
             v2paymentsOrderInformationBillToObj.Locality = "Foster City";

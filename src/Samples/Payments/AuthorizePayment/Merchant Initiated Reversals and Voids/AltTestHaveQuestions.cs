@@ -26,12 +26,12 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.AuthorizePayment.Merc
             var v2PaymentsOrderInformationBillToObj = new V2paymentsOrderInformationBillTo
             {
                 Country = "US",
-                LastName = "VDP",
+                LastName = "Deo",
                 Address1 = "201 S. Division St.",
                 PostalCode = "48104-2201",
                 Locality = "Ann Arbor",
                 AdministrativeArea = "MI",
-                FirstName = "RTS",
+                FirstName = "John",
                 District = "MI",
                 BuildingNumber = "123",
                 Email = "test@cybs.com"

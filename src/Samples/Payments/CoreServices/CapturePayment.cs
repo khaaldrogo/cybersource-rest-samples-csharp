@@ -33,8 +33,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.CoreServices
             var billToObj = new V2paymentsidcapturesOrderInformationBillTo
             {
                 Country = "US",
-                FirstName = "RTS",
-                LastName = "VDP",
+                FirstName = "John",
+                LastName = "Deo",
                 Address1 = "901 Metro Center Blvd",
                 PostalCode = "40500",
                 Locality = "Foster City",

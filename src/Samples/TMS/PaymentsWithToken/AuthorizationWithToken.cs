@@ -49,13 +49,13 @@ namespace Cybersource_rest_samples_dotnet.Samples.TMS.PaymentsWithToken
             var billToObj = new V2paymentsOrderInformationBillTo();
 
             billToObj.Country = "US";
-            billToObj.LastName = "VDP";
+            billToObj.LastName = "Deo";
             billToObj.Address2 = "Address 2";
             billToObj.Address1 = "201 S. Division St.";
             billToObj.PostalCode = "48104-2201";
             billToObj.Locality = "Ann Arbor";
             billToObj.AdministrativeArea = "MI";
-            billToObj.FirstName = "RTS";
+            billToObj.FirstName = "John";
             billToObj.PhoneNumber = "999999999";
             billToObj.District = "MI";
             billToObj.BuildingNumber = "123";

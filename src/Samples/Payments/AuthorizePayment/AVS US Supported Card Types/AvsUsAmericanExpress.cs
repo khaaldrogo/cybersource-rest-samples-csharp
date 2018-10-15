@@ -33,8 +33,8 @@ namespace Cybersource_rest_samples_dotnet.Samples.Payments.AuthorizePayment.AVS_
             var v2PaymentsOrderInformationBillToObj = new V2paymentsOrderInformationBillTo
             {
                 Country = "US",
-                FirstName = "RTS",
-                LastName = "VDP",
+                FirstName = "John",
+                LastName = "Deo",
                 Address2 = "Desk M3-5573",
                 Address1 = "901 Metro Center Blvd",
                 PostalCode = "94404",
